@@ -102,10 +102,10 @@ export function RotiAnimation({ className }: { className?: string }) {
       // ─── ROTI BASE ────────────────────────────────────────────
       // Base flat roti colour — warm beige/golden
       const rotiG = ctx!.createRadialGradient(cx - r * 0.12, cy - r * 0.15, r * 0.05, cx, cy, r);
-      rotiG.addColorStop(0, "#f6e4b2");
-      rotiG.addColorStop(0.45, "#e9ca78");
-      rotiG.addColorStop(0.82, "#d4a83c");
-      rotiG.addColorStop(1, "#b88520");
+      rotiG.addColorStop(0, "#f8e8b8");
+      rotiG.addColorStop(0.40, "#e8bf5a");
+      rotiG.addColorStop(0.78, "#c8922a");
+      rotiG.addColorStop(1, "#9c6812");
 
       ctx!.save();
       ctx!.shadowColor = "rgba(0,0,0,0.12)";

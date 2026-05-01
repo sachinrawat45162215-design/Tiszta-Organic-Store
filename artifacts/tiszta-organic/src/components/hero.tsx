@@ -8,9 +8,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-[#faf8f2]">
       {/* Roti tawa animation — full-bleed background */}
-      <RotiAnimation className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
-      {/* Thin left edge fade — just enough to keep text crisp */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#faf8f2] from-[18%] to-transparent" />
+      <RotiAnimation className="absolute inset-0 w-full h-full pointer-events-none opacity-70" />
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/10 rounded-l-[100px] -z-10 blur-3xl opacity-50 pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/10 rounded-full -z-10 blur-3xl opacity-60 pointer-events-none" />
