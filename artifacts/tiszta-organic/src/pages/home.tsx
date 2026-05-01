@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { Leaf, ShieldCheck, Activity, Heart, CheckCircle2 } from "lucide-react";
 import productBackImg from "@assets/WhatsApp_Image_2026-05-02_at_2.15.53_AM_1777668487989.jpeg";
+import { Product3DSection, Product3DButton } from "@/components/product-3d-viewer";
 
 export default function Home() {
   const highlights = [
@@ -139,11 +140,17 @@ export default function Home() {
                     </div>
                     <p className="text-xs text-muted-foreground mt-4 text-center">*Protein content per 100g of individual ingredient</p>
                   </div>
+                  <div className="mt-2">
+                    <Product3DButton />
+                  </div>
                 </motion.div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* 3D Product Showcase */}
+        <Product3DSection />
 
         {/* Trust Badges */}
         <section className="py-16 bg-white border-y border-border/50">
