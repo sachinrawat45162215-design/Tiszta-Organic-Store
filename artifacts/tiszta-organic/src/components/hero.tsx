@@ -2,10 +2,18 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "./ui/button";
 import productFrontImg from "@assets/WhatsApp_Image_2026-05-02_at_2.15.52_AM_1777668487991.jpeg";
+import { RotiAnimation } from "./roti-animation";
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-[#faf8f2]">
+      {/* Roti tawa animation — full-bleed background */}
+      <RotiAnimation className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
+
+      {/* Soft vignette — strong left fade keeps headline sharp */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#faf8f2] from-30% via-[#faf8f2]/70 via-50% to-transparent" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#faf8f2]/50 via-transparent to-[#faf8f2]/30" />
+
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/10 rounded-l-[100px] -z-10 blur-3xl opacity-50 pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/10 rounded-full -z-10 blur-3xl opacity-60 pointer-events-none" />
