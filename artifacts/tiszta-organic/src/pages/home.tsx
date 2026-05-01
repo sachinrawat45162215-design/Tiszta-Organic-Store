@@ -3,7 +3,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { Leaf, ShieldCheck, Activity, Heart, CheckCircle2 } from "lucide-react";
-import productBackImg from "@assets/WhatsApp_Image_2026-05-02_at_12.14.42_AM_1777664870255.jpeg";
+import productBackImg from "@assets/WhatsApp_Image_2026-05-02_at_2.15.53_AM_1777668487989.jpeg";
 
 export default function Home() {
   const highlights = [

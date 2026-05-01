@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { CheckCircle2, Clock } from "lucide-react";
-import productFrontImg from "@assets/WhatsApp_Image_2026-05-02_at_12.13.42_AM_1777664863473.jpeg";
+import productFrontImg from "@assets/WhatsApp_Image_2026-05-02_at_2.15.52_AM_1777668487991.jpeg";
 
 export default function Products() {
   return (
