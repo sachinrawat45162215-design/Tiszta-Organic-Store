@@ -9,15 +9,12 @@ export function Hero() {
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-[#faf8f2]">
       {/* Roti tawa animation — full-bleed background */}
       <RotiAnimation className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
-
       {/* Soft vignette — strong left fade keeps headline sharp */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#faf8f2] from-30% via-[#faf8f2]/70 via-50% to-transparent" />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#faf8f2]/50 via-transparent to-[#faf8f2]/30" />
-
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/10 rounded-l-[100px] -z-10 blur-3xl opacity-50 pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/10 rounded-full -z-10 blur-3xl opacity-60 pointer-events-none" />
-      
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <motion.div 
@@ -35,7 +32,7 @@ export function Hero() {
               100% Pure Organic Living
             </motion.div>
             
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground">
+            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground border-t-[#173320] border-r-[#173320] border-b-[#173320] border-l-[#173320]">
               From Soil to <span className="text-primary italic">Soul.</span>
             </h1>
             
