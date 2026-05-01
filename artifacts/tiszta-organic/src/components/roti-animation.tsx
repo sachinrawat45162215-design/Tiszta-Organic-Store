@@ -51,8 +51,8 @@ export function RotiAnimation({ className }: { className?: string }) {
       const H = canvas!.height;
       ctx!.clearRect(0, 0, W, H);
 
-      // Position roti in the centre-right zone (between text and product image)
-      const cx = W * 0.62;
+      // Drift slowly from right to left and back (period ≈ 18 s)
+      const cx = W * 0.60 + Math.sin(t * 0.085) * W * 0.17;
       const cy = H * 0.52;
       const r = Math.min(W, H) * 0.26; // roti radius
 
