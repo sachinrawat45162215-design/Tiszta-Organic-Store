@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "TISZTA Organic"
+version = "1.0.0"
+id = "artifacts/tiszta-organic"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23578
+
+[services.development]
+run = "pnpm --filter @workspace/tiszta-organic run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/tiszta-organic", "run", "build" ]
+publicDir = "artifacts/tiszta-organic/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23578"
+BASE_PATH = "/"
