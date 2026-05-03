@@ -5,20 +5,49 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
-import { Mail, Instagram, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { SiInstagram, SiGmail } from "react-icons/si";
+import { useState } from "react";
 
 export default function Contact() {
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We will get back to you shortly.",
-      duration: 5000,
-    });
-    (e.target as HTMLFormElement).reset();
+    const form = e.target as HTMLFormElement;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Server error");
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. We'll get back to you shortly.",
+        duration: 5000,
+      });
+      form.reset();
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email us directly at tisztaorganic@gmail.com",
+        variant: "destructive",
+        duration: 6000,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -81,7 +110,8 @@ export default function Contact() {
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">Full Name</label>
                     <Input 
-                      id="name" 
+                      id="name"
+                      name="name"
                       required 
                       placeholder="John Doe" 
                       className="bg-white h-12 border-border/50 focus-visible:ring-primary"
@@ -91,7 +121,8 @@ export default function Contact() {
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">Email Address</label>
                     <Input 
-                      id="email" 
+                      id="email"
+                      name="email"
                       type="email" 
                       required 
                       placeholder="john@example.com" 
@@ -102,15 +133,21 @@ export default function Contact() {
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">Message</label>
                     <Textarea 
-                      id="message" 
+                      id="message"
+                      name="message"
                       required 
                       placeholder="How can we help you?" 
                       className="bg-white min-h-[150px] resize-none border-border/50 focus-visible:ring-primary"
                     />
                   </div>
                   
-                  <Button type="submit" size="lg" className="w-full h-14 rounded-xl text-base font-semibold">
-                    Send Message
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={loading}
+                    className="w-full h-14 rounded-xl text-base font-semibold"
+                  >
+                    {loading ? "Sending…" : "Send Message"}
                   </Button>
                 </form>
               </div>
