@@ -1,7 +1,8 @@
 import { Link } from "wouter";
-import { Wheat, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import logoImg from "@assets/tiszta_logo_nobg.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,13 +24,12 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground group-hover:scale-105 transition-transform">
-              <Wheat className="w-6 h-6" />
-            </div>
-            <span className="font-serif text-xl md:text-2xl font-bold text-foreground">
-              TISZTA Organic
-            </span>
+          <Link href="/" className="flex items-center group">
+            <img
+              src={logoImg}
+              alt="TISZTA Organic"
+              className="h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </Link>
 
           {/* Desktop Nav */}
