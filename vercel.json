@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/tiszta-organic run build:vercel",
-  "outputDirectory": "artifacts/tiszta-organic/dist",
+  "outputDirectory": "dist",
   "installCommand": "pnpm install",
   "framework": null,
   "rewrites": [
